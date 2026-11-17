@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - تطبيق Profile Survey</title>
+    <!-- استيراد خط تجوال العربي الأنيق من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* المتغيرات اللونية والتصميمية الحديثة */
+        :root {
+            --primary-color: #1e3a8a;       /* أزرق هندسي داكن */
+            --secondary-color: #f59e0b;     /* أصفر برتقالي خاص بأدوات المساحة */
+            --bg-color: #f8fafc;            /* خلفية رمادية فاتحة مريحة للعين */
+            --card-bg: #ffffff;             /* خلفية البطاقة الرئيسية */
+            --text-main: #1e293b;           /* لون النص الأساسي */
+            --text-muted: #64748b;          /* لون النص الثانوي */
+            --border-color: #e2e8f0;        /* لون الحدود */
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        /* دعم الوضع الليلي التلقائي حسب إعدادات جهاز المستخدم */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #3b82f6;
+                --secondary-color: #fbbf24;
+                --bg-color: #0f172a;
+                --card-bg: #1e293b;
+                --text-main: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border-color: #334155;
+                --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            max-width: 850px;
+            margin: 20px auto;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        /* ترويسة الصفحة */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .app-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fbbf24;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+
+        /* شريط تبديل اللغة */
+        .lang-switch-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 30px 0;
+        }
+
+        .lang-btn {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        /* محتوى الصفحة */
+        .content {
+            padding: 20px 40px 40px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background-color: var(--bg-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-right: 25px;
+            margin-bottom: 15px;
+        }
+
+        [dir="ltr"] ul {
+            margin-right: 0;
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* صندوق تنبيه مهم */
+        .highlight-box {
+            background-color: var(--bg-color);
+            border-right: 4px solid var(--primary-color);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        [dir="ltr"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: var(--bg-color);
+            padding: 25px 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* إخفاء النسخة الإنجليزية افتراضياً */
+        .en-content {
+            display: none;
+        }
+
+        /* التجاوب مع شاشات الهواتف */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            header {
+                padding: 30px 20px;
+            }
+            header h1 {
+                font-size: 1.7rem;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ترويسة الصفحة -->
+        <header>
+            <div class="app-badge">cemu-it</div>
+            <h1 id="main-title">سياسة الخصوصية</h1>
+            <p id="sub-title">تطبيق Profile Survey لأعمال المساحة والقطاعات الهندسية</p>
+        </header>
+
+        <!-- زر تبديل اللغة (عربي / إنجليزي) لأن مراجعي جوجل يفضلون وجود نص إنجليزي -->
+        <div class="lang-switch-bar">
+            <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">English Version</button>
+        </div>
+
+        <!-- ================= المحتوى باللغة العربية ================= -->
+        <main class="content ar-content" id="ar-section">
+            <div class="last-updated">تاريخ التحديث: نوفمبر 2026</div>
+
+            <section>
+                <h2>مقدمة</h2>
+                <p>
+                    قام المطور <strong>cemu-it</strong> ببناء تطبيق <strong>Profile Survey</strong> كتطبيق مجاني مدعوم بالإعلانات. يتم توفير هذه الخدمة من قِبل <strong>cemu-it</strong> وهي مخصصة للاستخدام كما هي لتسهيل الأعمال المساحية وحساب المناسيب والقطاعات العرضية.
+                </p>
+                <p>
+                    تُستخدم هذه الصفحة لإعلام الزوار ومستخدمي التطبيق بسياساتنا المتعلقة بجمع المعلومات الشخصية واستخدامها والكشف عنها في حال قرر أي شخص استخدام خدمتنا.
+                </p>
+            </section>
+
+            <section>
+                <h2>جمع المعلومات واستخدامها</h2>
+                <div class="highlight-box">
+                    <strong>نحن نحترم خصوصيتك بالكامل:</strong> تطبيق <strong>Profile Survey</strong> لا يقوم بجمع أو تخزين أو مشاركة أي بيانات شخصية أو هندسية خاصة بك على خوادم خارجية. جميع قراءات الميزان والقامة والقطاعات التي تقوم بإدخالها تتم معالجتها محلياً على جهازك فقط.
+                </div>
+                <p>
+                    ومع ذلك، يستخدم التطبيق خدمات تابعة لجهات خارجية (Third-Party Services) قد تقوم بجمع معلومات تُستخدم لتحديد هويتك لغرض عرض الإعلانات المناسبة وتحسين أداء الخدمة.
+                </p>
+                <p>رابط سياسة الخصوصية لمزود خدمة الطرف الثالث الذي يستخدمه التطبيق:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">خدمات Google Play (Google Play Services)</a></li>
+                    <li><a href="https://support.google.com/admob/answer/6128543?hl=ar" target="_blank" rel="noopener noreferrer">إعلانات جوجل (Google AdMob)</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>الإعلانات ومعرف الإعلانات (AdMob)</h2>
+                <p>
+                    يستخدم تطبيق <strong>Profile Survey</strong> خدمة <strong>Google AdMob</strong> لعرض الإعلانات للمستخدمين لدعم استمرارية تطوير التطبيق مجاناً. قد تستخدم شركة Google وشركاؤها معرف الإعلانات الخاص بجهازك (Advertising ID) وملفات تعريف الارتباط لعرض إعلانات مخصصة أو غير مخصصة بناءً على زياراتك السابقة أو اهتماماتك.
+                </p>
+                <p>
+                    يمكنك التحكم في إعدادات الإعلانات المخصصة أو إيقافها في أي وقت من خلال إعدادات الخصوصية في هاتفك الأندرويد (الإعدادات &gt; Google &gt; الإعلانات).
+                </p>
+            </section>
+
+            <section>
+                <h2>أمن البيانات (Log Data & Security)</h2>
+                <p>
+                    في حالة حدوث خطأ تقني في التطبيق أثناء الاستخدام، قد تقوم خدمات جوجل بجمع بيانات ومعلومات (من خلال منتجات جهات خارجية) على هاتفك تُسمى "بيانات السجل" (Log Data). قد تتضمن بيانات السجل هذه معلومات مثل عنوان بروتوكول الإنترنت (IP) الخاص بجهازك، واسم الجهاز، وإصدار نظام التشغيل، وتكوين التطبيق، ووقت وتاريخ استخدام الخدمة، وإحصاءات أخرى للمساعدة في إصلاح الأعطال.
+                </p>
+            </section>
+
+            <section>
+                <h2>خصوصية الأطفال</h2>
+                <p>
+                    هذه الخدمات الهندسية والمساحية غير موجهة للأشخاص الذين تقل أعمارهم عن 13 عاماً. نحن لا نجمع عن قصد معلومات تعريف شخصية من الأطفال دون سن 13 عاماً.
+                </p>
+            </section>
+
+            <section>
+                <h2>التغييرات على سياسة الخصوصية هذه</h2>
+                <p>
+                    قد نقوم بتحديث سياسة الخصوصية الخاصة بنا من وقت لآخر. وبالتالي، يُنصح بمراجعة هذه الصفحة بشكل دوري للاطلاع على أي تغييرات. تسري هذه التغييرات فور نشرها على هذه الصفحة.
+                </p>
+            </section>
+
+            <section>
+                <h2>اتصل بنا</h2>
+                <p>
+                    إذا كانت لديك أي أسئلة أو اقتراحات حول سياسة الخصوصية الخاصة بنا، فلا تتردد في التواصل معنا عبر صفحة المطور <strong>cemu-it</strong> على متجر Google Play.
+                </p>
+            </section>
+        </main>
+
+        <!-- ================= المحتوى باللغة الإنجليزية (مهم جداً لمراجعي جوجل) ================= -->
+        <main class="content en-content" id="en-section" dir="ltr">
+            <div class="last-updated">Last Updated: November 2026</div>
+
+            <section>
+                <h2>Introduction</h2>
+                <p>
+                    <strong>cemu-it</strong> built the <strong>Profile Survey</strong> app as an Ad-Supported app. This SERVICE is provided by <strong>cemu-it</strong> at no cost and is intended for use as is for surveying calculations, leveling, and cross-section plotting.
+                </p>
+                <p>
+                    This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+                </p>
+            </section>
+
+            <section>
+                <h2>Information Collection and Use</h2>
+                <div class="highlight-box">
+                    <strong>We value your privacy:</strong> The <strong>Profile Survey</strong> app does NOT collect, store, or transmit any personal or engineering survey data to external servers. All leveling readings and cross-section data you enter are processed locally on your device.
+                </div>
+                <p>
+                    However, the app does use third-party services that may collect information used to identify you for advertising and analytics purposes.
+                </p>
+                <p>Link to the privacy policy of third-party service providers used by the app:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                    <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener noreferrer">Google AdMob</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Advertising (Google AdMob)</h2>
+                <p>
+                    <strong>Profile Survey</strong> uses <strong>Google AdMob</strong> to display advertisements. Google and its partners may use your device's Advertising ID and cookies to serve personalized or non-personalized ads.
+                </p>
+                <p>
+                    You can opt-out of personalized advertising at any time through your Android device settings (Settings &gt; Google &gt; Ads).
+                </p>
+            </section>
+
+            <section>
+                <h2>Log Data & Security</h2>
+                <p>
+                    Whenever you use our Service, in a case of an error in the app, data and information (through third-party products) may be collected on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app, the time and date of your use of the Service, and other statistics.
+                </p>
+            </section>
+
+            <section>
+                <h2>Children’s Privacy</h2>
+                <p>
+                    These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age.
+                </p>
+            </section>
+
+            <section>
+                <h2>Changes to This Privacy Policy</h2>
+                <p>
+                    We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page.
+                </p>
+            </section>
+
+            <section>
+                <h2>Contact Us</h2>
+                <p>
+                    If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact <strong>cemu-it</strong> via our developer page on Google Play Store.
+                </p>
+            </section>
+        </main>
+
+        <!-- تذييل الصفحة -->
+        <footer>
+            <p>&copy; 2026 <strong>cemu-it</strong> - جميع الحقوق محفوظة لتطبيق <strong>Profile Survey</strong></p>
+        </footer>
+    </div>
+
+    <!-- كود بسيط للتبديل بين العربية والإنجليزية -->
+    <script>
+        let isArabic = true;
+
+        function toggleLanguage() {
+            const arSection = document.getElementById('ar-section');
+            const enSection = document.getElementById('en-section');
+            const btn = document.getElementById('lang-toggle-btn');
+            const mainTitle = document.getElementById('main-title');
+            const subTitle = document.getElementById('sub-title');
+            const htmlTag = document.documentElement;
+
+            if (isArabic) {
+                // التبديل إلى الإنجليزية
+                arSection.style.display = 'none';
+                enSection.style.display = 'block';
+                btn.textContent = 'النسخة العربية';
+                mainTitle.textContent = 'Privacy Policy';
+                subTitle.textContent = 'Profile Survey Application - Surveying & Cross Sections';
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', 'en');
+                isArabic = false;
+            } else {
+                // التبديل إلى العربية
+                enSection.style.display = 'none';
+                arSection.style.display = 'block';
+                btn.textContent = 'English Version';
+                mainTitle.textContent = 'سياسة الخصوصية';
+                subTitle.textContent = 'تطبيق Profile Survey لأعمال المساحة والقطاعات الهندسية';
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                isArabic = true;
+            }
+        }
+    </script>
+</body>
+</html>
